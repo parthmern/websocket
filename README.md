@@ -24,4 +24,5 @@
 - in server `npm i socket.io`
 - in client `npm i socket.io-client`
 
+# [imp vid for what it is](https://youtu.be/UUddpbgPEJM?si=Y34noDbpemkzRNZc)
 # [Imp vid](https://youtu.be/_h7Pc1woq-I?si=cbwRTczY04Ah5yNK)
