@@ -11,6 +11,23 @@ const io = socketio(server);
 
 io.on('connection', (socket) => {
     console.log('a user connected', socket.id);
+
+    setInterval(()=>{
+        socket.emit('from_server', {key:"value"});
+    }, 60000);
+
+    socket.on('from_client', (msg)=>{
+        console.log("msg from_client->", msg);
+    })
+
+
+    socket.on('msg_send', (msg)=>{
+        console.log("msg rcvd", msg);
+        // io.emit('msg_rcvd', msg); // to all 
+        //socket.emit('msg_rcvd', msg); // for only same client who sent event remaining not receving
+        socket.broadcast.emit('msg_rcvd', msg);  // except original cleint, others remaining can receive
+    })
+
 });
 
 // NOT WORKING 
